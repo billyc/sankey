@@ -21,7 +21,7 @@
 }
 
 .link:hover {
-  stroke-opacity: .5;
+  stroke-opacity: .4;
 }
 
 </style>
@@ -33,7 +33,7 @@
 <script src="sankey.js"></script>
 <script>
 	
-var units = "Widgets";
+var units = "Trips";
 
 var margin = {top: 10, right: 10, bottom: 10, left: 10},
     width = 700 - margin.left - margin.right,
@@ -41,7 +41,7 @@ var margin = {top: 10, right: 10, bottom: 10, left: 10},
 
 var formatNumber = d3.format(",.0f"),    // zero decimal places
     format = function(d) { return formatNumber(d) + " " + units; },
-    color = d3.scale.category20();
+    color = d3.scale.category10();
 
 // append the svg canvas to the page
 var svg = d3.select("#chart").append("svg")
@@ -53,7 +53,7 @@ var svg = d3.select("#chart").append("svg")
 
 // Set the sankey diagram properties
 var sankey = d3.sankey()
-    .nodeWidth(36)
+    .nodeWidth(16)
     .nodePadding(40)
     .size([width, height]);
 
@@ -101,8 +101,6 @@ d3.json("sankey-formatted.json", function(error, graph) {
       .attr("width", sankey.nodeWidth())
       .style("fill", function(d) { 
 		  return d.color = color(d.name.replace(/ .*/, "")); })
-      .style("stroke", function(d) { 
-		  return d3.rgb(d.color).darker(2); })
     .append("title")
       .text(function(d) { 
 		  return d.name + "\n" + format(d.value); });
