@@ -1,0 +1,3 @@
+This is a simple sankey diagram used as an example in the book [D3 Tips and Tricks](https://leanpub.com/D3-Tips-and-Tricks).
+
+It demonstrates the construction of a [sankey diagram](http://bost.ocks.org/mike/sankey/) using d3.js from external JSON data using the [sankey.js plugin](https://github.com/d3/d3-plugins/tree/master/sankey). It should be taken in context with the text of the [book](https://leanpub.com/D3-Tips-and-Tricks) which can be downloaded for free from Leanpub.
